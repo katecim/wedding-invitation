@@ -1,0 +1,195 @@
+/* --- Scene Setup --- */
+.scene-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  perspective: 1500px; /* Essential for the 3D flap flip */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* Use your wood texture image here */
+  background: #e3d5c5 url('../assets/images/candles1_cut.jpg') center/cover no-repeat;
+}
+
+.desk {
+  position: relative;
+  width: 1000px;
+  height: 600px;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- The Envelope Sandwich --- */
+.envelope-wrapper {
+  position: relative;
+  width: 550px; /* Adjusted to match video proportions */
+  height: 380px;
+  z-index: 10;
+  box-shadow: 15px 15px 45px rgba(0,0,0,0.15);
+}
+
+/* The back of the envelope - visible when the card slides out */
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  z-index: 1; 
+  border-radius: 2px;
+}
+
+/* The Front Pocket - This sits ON TOP of the invite */
+.envelope-front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%; /* Covers the bottom 70% of the invite */
+  background: #fdfdfd;
+  z-index: 3; /* High z-index to cover the card */
+  /* This creates the 'V' shape for the pocket */
+  clip-path: polygon(0 0, 50% 30%, 100% 0, 100% 100%, 0 100%);
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* The Animated Flap */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #ffffff;
+  z-index: 4; /* Sits on top of everything when closed */
+  transform-origin: top;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  backface-visibility: hidden; /* Fixes flickering during rotation */
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* The Main Invite Card */
+.main-invite {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  z-index: 2; /* Sits BETWEEN the back and the front pocket */
+}
+
+.main-invite img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@font-face {
+    font-family: 'Motterdam';
+    src: url('../assets/fonts/Motterdam-MVanr.otf') format('opentype'),
+         url('../assets/fonts/Motterdam-K74zp.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.invitation-letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%); /* Start slightly lower than center */
+    width: 80%;
+    max-width: 600px;
+    height: 80vh;
+    background: white;
+    padding: 40px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    z-index: 100; /* Above everything else */
+    opacity: 0;   /* Hidden initially */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.letter-content h1 {
+    font-family: 'Motterdam', serif; 
+    font-size: 5.5rem;
+    color: #333;
+    font-weight: 100;
+    margin: 0
+}
+
+
+.letter-content p {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 2px;
+    color: #666;
+    font-size: 1rem;
+}
+
+#KateOmer { 
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 24px;
+}
+
+#date {
+    font-size: 1.5rem;
+    margin: 20px;
+    color: #333;
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color:  #e7e4e1;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    z-index: 5;
+}
+
+.arrow-down {
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid #bdbcbc;
+    border-right: 2px solid #bdbcbc;
+    transform: rotate(45deg);
+    margin: 10px auto;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+    40% { transform: translateY(-10px) rotate(45deg); }
+    60% { transform: translateY(-5px) rotate(45deg); }
+}
+
+.language-nav {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    z-index: 1000; /* Stays above everything */
+}
+
+#language-select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.8);
+    font-family: 'Playfair Display', serif;
+    cursor: pointer;
+    outline: none;
+}
+
+#language-select:hover {
+    background: white
+}

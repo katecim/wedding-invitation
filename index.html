@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Kate & Ömer</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Essential reset to make scroll-pinning work smoothly */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="language-nav">
+        <select id="language-select">
+            <option value="en">English</option>
+            <option value="cz">Česky</option>
+            <option value="tr">Türkçe</option>
+        </select>
+    </nav>
+
+    <div id="scroll-container" style="height: 500vh;"> 
+        
+        <div class="scene-wrapper">
+            <div class="desk">
+                <div class="envelope-wrapper">
+                    <div class="envelope-back"></div>
+                    <div class="main-invite">
+                        <img src="assets/images/gemini_wedding_photo.png" alt="Invite Content">
+                    </div>
+                    <div class="envelope-front"></div>
+                    <div class="envelope-flap"></div> 
+                </div>
+
+                <div class="scroll-hint">
+                    <span data-key="scroll-hint">Scroll down to open</span>
+                <div class="arrow-down"></div>
+            </div>
+            </div>
+
+            <div class="invitation-letter">
+                <div class="letter-content">
+                    <h1 data-key="title">Save the Date</h1>
+                    <p id="KateOmer">Kateřina & Ömer Halit</p>
+                    <p data-key="getting-married-text">are getting married!</p>   
+                    <p id="date" data-key="date">August 8, 2026</p>     
+                    <p>Hilton Garden Inn Izmir Bayraklı</p>
+                    <hr>
+                    <p data-key="formal-invitation">Formal invitation to follow</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>
