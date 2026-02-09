@@ -1,4 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
+import { translations } from './translations.js';
 
 // 1. Setup the timeline
 const tl = gsap.timeline({
