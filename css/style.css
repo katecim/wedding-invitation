@@ -16,7 +16,7 @@
 
 .desk {
   position: relative;
-  width: 1000px;
+  width: 100%;
   height: 600px;
   transform-style: preserve-3d;
   display: flex;
@@ -27,8 +27,10 @@
 /* --- The Envelope Sandwich --- */
 .envelope-wrapper {
   position: relative;
-  width: 550px; /* Adjusted to match video proportions */
-  height: 380px;
+  width: 90vw;
+  max-width: 550px;
+  aspect-ratio: 550 / 380;
+  height: auto;
   z-index: 10;
   box-shadow: 15px 15px 45px rgba(0,0,0,0.15);
 }
@@ -100,11 +102,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -20%); /* Start slightly lower than center */
-    width: 80%;
+    width: 90%;
     max-width: 600px;
-    height: 80vh;
+    height: 75vh;
     background: white;
-    padding: 40px;
+    padding: 20px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.2);
     z-index: 100; /* Above everything else */
     opacity: 0;   /* Hidden initially */
@@ -157,7 +159,8 @@ a:hover {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    color:  #e7e4e1;
+    color:  #fffefd;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
     letter-spacing: 1px;
@@ -199,4 +202,36 @@ a:hover {
 
 #language-select:hover {
     background: white
+}
+
+@media (max-width: 600px) {
+    .letter-content h1 {
+        font-size: 3.25rem;
+    }
+    
+    #KateOmer {
+        font-size: 1.5rem;
+    }
+
+    .language-nav {
+        top: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 932px) and (orientation: landscape) {
+    .envelope-wrapper {
+        width: 60vw; /* Make it smaller so it fits the short screen */
+        max-width: 400px;
+    }
+
+    .invitation-letter {
+        height: 95vh;
+        width: 60vw;
+        overflow-y: auto; /* Allow scrolling inside the letter if text is too tall */
+    }
+
+    .letter-content h1 {
+        font-size: 2.5rem;
+    }
 }
