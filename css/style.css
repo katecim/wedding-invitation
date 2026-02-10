@@ -245,6 +245,10 @@ hr {
         top: 15px;
         right: 15px;
     }
+
+    .desk {
+        height: 500px;
+    }
 }
 
 @media (max-width: 932px) and (orientation: landscape) {
