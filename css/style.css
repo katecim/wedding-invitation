@@ -202,7 +202,9 @@ hr {
     -moz-appearance: none;
     appearance: none;
     outline: none;
-    color: #333; 
+    color: #333 !important;;
+    -webkit-text-fill-color: #333;
+    opacity: 1;
 
     /* 2. Dimensions and Space for the Arrow */
     padding: 8px 35px 8px 12px; 
