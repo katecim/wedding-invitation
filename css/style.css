@@ -208,6 +208,10 @@ hr {
     z-index: 21;
     cursor: pointer;
     pointer-events: auto;
+
+    white-space: nowrap;      /* Prevents text from breaking into two lines */
+    width: max-content;       /* Allows the box to expand to fit the text exactly */
+    max-width: 90vw;          /* Ensures it doesn't exceed viewport width */
 }
 
 .arrow-down {
