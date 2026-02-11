@@ -50,9 +50,7 @@ ScrollTrigger.create({
     onEnter: openInvitation,
     onLeaveBack: () => {
         tl.reverse();
-    },
-
-    fastScrollEnd: true, //  ensures the animation resets if the user 'flicks' the page
+    }
 });
 
 // Trigger open when envelope is clicked
@@ -67,11 +65,18 @@ const langSelect = document.getElementById('language-select');
 
 function updateLanguage(lang) {
     const elements = document.querySelectorAll('[data-key]');
+    const isMobile = window.innerWidth < 800;
+
     elements.forEach(el => {
-        const key = el.getAttribute('data-key');
-        if (translations[lang][key]) {
-            el.textContent = translations[lang][key];
-        }
+      let key = el.getAttribute('data-key');
+
+      if (key === 'scroll-hint' && isMobile) {
+          key = 'scroll-hint-mobile';
+      }
+
+      if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+      }
     });
     
     ScrollTrigger.refresh();
@@ -79,4 +84,8 @@ function updateLanguage(lang) {
 
 langSelect.addEventListener('change', (e) => {
     updateLanguage(e.target.value);
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+    updateLanguage(langSelect.value);
 });
