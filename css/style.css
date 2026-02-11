@@ -1,17 +1,28 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    /* Prevents the white 'rubber band' effect on iOS */
+    overflow-x: hidden;
+    position: relative;
+}
+
 /* --- Scene Setup --- */
 .scene-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   perspective: 1500px; /* Essential for the 3D flap flip */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  /* Use your wood texture image here */
   background: #e3d5c5 url('../assets/images/candles1_cut.jpg') center/cover no-repeat;
+}
+
+#scroll-container {
+    width: 100%;
 }
 
 .desk {
@@ -291,5 +302,15 @@ hr {
         background-repeat: no-repeat !important;
         background-position: right 12px center !important;
         background-size: 14px !important;
+    }
+}
+
+@media (max-width: 799px) {
+    #scroll-container {
+        height: 150vh; 
+    }
+
+    body {
+        overscroll-behavior-y: none;
     }
 }
