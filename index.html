@@ -8,14 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     
-    <style>
-        /* Essential reset to make scroll-pinning work smoothly */
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-    </style>
 </head>
 <body>
 
@@ -31,7 +23,7 @@
         
         <div class="scene-wrapper">
             <div class="desk">
-                <div class="envelope-wrapper">
+                <div class="envelope-wrapper" id="envelope-clickable">
                     <div class="envelope-back"></div>
                     <div class="main-invite">
                         <img src="assets/images/gemini_wedding_photo.png" alt="Invite Content">
@@ -40,7 +32,7 @@
                     <div class="envelope-flap"></div> 
                 </div>
 
-                <div class="scroll-hint">
+                <div class="scroll-hint" id="scroll-hint">
                     <span data-key="scroll-hint">Scroll down to open</span>
                 <div class="arrow-down"></div>
             </div>
