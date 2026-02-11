@@ -1,9 +1,17 @@
 import { translations } from './translations.js';
 
-// Force scroll to top on refresh
-window.onbeforeunload = function() {
-    window.scrollTo(0, 0);
-};
+// Force the browser to NOT remember the scroll position
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+}
+
+// Hard reset to top on load
+window.scrollTo(0, 0);
+
+// Ensure ScrollTrigger refreshes its math
+window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+});
 
 // 1. Create the Timeline
 const tl = gsap.timeline({
@@ -37,11 +45,14 @@ const openInvitation = () => {
 ScrollTrigger.create({
     trigger: "#scroll-container",
     start: "top+=20 top",
-    end: "top+=10 top",
+    end: "bottom top",
+
     onEnter: openInvitation,
     onLeaveBack: () => {
         tl.reverse();
-    }
+    },
+
+    fastScrollEnd: true, //  ensures the animation resets if the user 'flicks' the page
 });
 
 // Trigger open when envelope is clicked
