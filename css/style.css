@@ -2,8 +2,17 @@ html, body {
     margin: 0;
     padding: 0;
     /* Prevents the white 'rubber band' effect on iOS */
-    overflow-x: hidden;
-    position: relative;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    display: none;
 }
 
 /* --- Scene Setup --- */
@@ -19,6 +28,7 @@ html, body {
   align-items: center;
   overflow: hidden;
   background: #e3d5c5 url('../assets/images/candles1_cut.jpg') center/cover no-repeat;
+  background-attachment: scroll;
 }
 
 #scroll-container {
@@ -307,7 +317,11 @@ hr {
 
 @media (max-width: 799px) {
     #scroll-container {
-        height: 150vh; 
+        height: 101vh; 
+    }
+
+    .invitation-letter {
+        height: 60vh;
     }
 
     body {
