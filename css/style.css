@@ -234,6 +234,8 @@ hr {
     white-space: nowrap;      /* Prevents text from breaking into two lines */
     width: max-content;       /* Allows the box to expand to fit the text exactly */
     max-width: 90vw;          /* Ensures it doesn't exceed viewport width */
+
+    animation: twinkle-glow 2.5s infinite ease-in-out;
 }
 
 .arrow-down {
@@ -322,6 +324,10 @@ hr {
         padding: 6px 30px 6px 10px;
         min-width: 80px;
     }
+
+    .wax-seal {
+    width: 100px;
+}
 }
 
 @media (max-width: 932px) and (orientation: landscape) {
@@ -363,7 +369,7 @@ hr {
     }
 
     .invitation-letter {
-        height: 60vh;
+        height: 50vh;
     }
 
     body {
@@ -384,4 +390,15 @@ hr {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(225deg); }
     40% { transform: translateY(10px) rotate(225deg); }
     60% { transform: translateY(5px) rotate(225deg); }
+}
+
+@keyframes twinkle-glow {
+    0%, 100% { 
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+        opacity: 0.8;
+    }
+    50% { 
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
+        opacity: 1;
+    }
 }

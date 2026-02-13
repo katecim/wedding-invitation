@@ -23,7 +23,7 @@ const tl = gsap.timeline({
 tl.to(".scroll-hint", { 
     opacity: 0, 
     y: 10, 
-    duration: 0.3 
+    duration: 0.4 
 })
 
   .to(".envelope-flap-container", { 
@@ -86,12 +86,14 @@ const langSelect = document.getElementById('language-select');
 function updateLanguage(lang) {
     const elements = document.querySelectorAll('[data-key]');
     const isMobile = window.innerWidth < 800;
+    const arrow = document.querySelector('.arrow-down');
 
     elements.forEach(el => {
       let key = el.getAttribute('data-key');
 
       if (key === 'scroll-hint' && isMobile) {
           key = 'scroll-hint-mobile';
+          arrow.style.display = 'none';          
       }
 
       if (translations[lang][key]) {
