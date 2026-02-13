@@ -5,32 +5,52 @@ if (history.scrollRestoration) {
     history.scrollRestoration = 'manual';
 }
 
-// Hard reset to top on load
-window.scrollTo(0, 0);
-
 // Ensure ScrollTrigger refreshes its math
 window.addEventListener('load', () => {
-    ScrollTrigger.refresh();
+    window.scrollTo(0, 0);
 });
 
 // 1. Create the Timeline
 const tl = gsap.timeline({
     paused: true,
-    defaults: { ease: "power2.inOut" }
+    defaults: { 
+        ease: "power2.out",
+        duration: 1 
+    }
 });
 
 // 2. Define the Animation Steps
-tl.to(".scroll-hint", { opacity: 0, y: 20, duration: 0.5 })
-  .to(".envelope-flap", { rotationX: -180, duration: 1.2 })
-  .to(".main-invite", { y: -50, duration: 0.8 }, "-=0.3")
+tl.to(".scroll-hint", { 
+    opacity: 0, 
+    y: 10, 
+    duration: 0.3 
+})
+
+  .to(".envelope-flap-container", { 
+    rotationX: -180, 
+    duration: 1.3 
+}, "-=0.2")
+
+  .to(".main-invite", { 
+    y: -80,
+    rotation: -1.5,
+    duration: 1.2 
+}, "-=1.0")
+
   .to(".invitation-letter", {
       opacity: 1,
       transform: "translate(-50%, -50%)",
-      duration: 1.5,
-      ease: "power3.out",
+      duration: 1.1,
+      ease: "back.out(1.1)",
       pointerEvents: "auto"
-  })
-  .to(".desk", { filter: "blur(5px)", scale: 0.9, opacity: 0.3, duration: 1.5 }, "-=1.5");
+  }, "-=0.4")
+
+  .to(".desk", { 
+    filter: "blur(5px)", 
+    scale: 0.9, 
+    opacity: 0.3, 
+    duration: 1.5 
+}, "-=1.1");
 
 // 3. Define the trigger Function
 const openInvitation = () => {
