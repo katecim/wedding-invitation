@@ -308,7 +308,7 @@ hr {
 }
 
 .language-nav:hover, #language-select:hover {
-    background: white;
+    background-color: white;
     opacity: 0.9;
 }
 
