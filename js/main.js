@@ -1,10 +1,5 @@
 import { translations } from './translations.js';
 
-// Force the browser to NOT remember the scroll position
-if (history.scrollRestoration) {
-    history.scrollRestoration = 'manual';
-}
-
 // Ensure ScrollTrigger refreshes its math
 window.addEventListener('load', () => {
     window.scrollTo(0, 0);
@@ -22,8 +17,8 @@ const tl = gsap.timeline({
 // 2. Define the Animation Steps
 tl.to(".scroll-hint", { 
     opacity: 0, 
-    y: 10, 
-    duration: 0.4 
+    y: 1, 
+    duration: 0.2 
 })
 
   .to(".envelope-flap-container", { 
@@ -43,7 +38,7 @@ tl.to(".scroll-hint", {
       duration: 1.1,
       ease: "back.out(1.1)",
       pointerEvents: "auto"
-  }, "-=0.4")
+  }, "-=0.3")
 
   .to(".desk", { 
     filter: "blur(5px)", 
@@ -52,26 +47,12 @@ tl.to(".scroll-hint", {
     duration: 1.5 
 }, "-=1.1");
 
-// 3. Define the trigger Function
+// Trigger Function
 const openInvitation = () => {
     if (tl.progress() === 0) { 
         tl.play();
-
-        document.body.style.overflow = 'auto';
     }
 };
-
-// 4. Setup All Triggers (Scroll & Click)
-ScrollTrigger.create({
-    trigger: "#scroll-container",
-    start: "top+=20 top",
-    end: "bottom top",
-
-    onEnter: openInvitation,
-    onLeaveBack: () => {
-        tl.reverse();
-    }
-});
 
 // Trigger open when envelope is clicked
 const envelope = document.getElementById('envelope-clickable');
@@ -85,16 +66,9 @@ const langSelect = document.getElementById('language-select');
 
 function updateLanguage(lang) {
     const elements = document.querySelectorAll('[data-key]');
-    const isMobile = window.innerWidth < 800;
-    const arrow = document.querySelector('.arrow-down');
 
     elements.forEach(el => {
       let key = el.getAttribute('data-key');
-
-      if (key === 'scroll-hint' && isMobile) {
-          key = 'scroll-hint-mobile';
-          arrow.style.display = 'none';          
-      }
 
       if (translations[lang][key]) {
           el.textContent = translations[lang][key];
