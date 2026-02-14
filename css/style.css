@@ -233,8 +233,6 @@ hr {
     white-space: nowrap;      /* Prevents text from breaking into two lines */
     width: max-content;       /* Allows the box to expand to fit the text exactly */
     max-width: 90vw;          /* Ensures it doesn't exceed viewport width */
-
-    animation: twinkle-glow 2.5s infinite ease-in-out;
 }
 
 .scroll-hint-button {
@@ -253,8 +251,16 @@ hr {
     font-size: 1rem;
     letter-spacing: 1px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
 
+    transition: background-color 0.3s ease, color 0.3s ease;
+    animation: twinkle-glow 2.5s infinite ease-in-out;
+}
+
+.scroll-hint-button:hover {
+    background-color: #fffefd;
+    transition: none;
+    animation: none;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
 }
 
 .language-nav {
@@ -312,7 +318,7 @@ hr {
         font-size: 3.25rem;
     }
 
-    .letter-content hr {
+    .letter-content h2 {
         font-size: 1.5rem;
     }
     
