@@ -1,5 +1,18 @@
 import { translations } from './translations.js';
 
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const lang = urlParams.get('lang');
+
+    // If a lang is in the URL, use it; otherwise use the dropdown's default
+    if (lang && translations[lang]) {
+        langSelect.value = lang;
+        updateLanguage(lang);
+    } else {
+        updateLanguage(langSelect.value);
+    }
+});
+
 window.addEventListener('load', () => {
     window.scrollTo(0, 0);
 });
@@ -74,7 +87,14 @@ function updateLanguage(lang) {
       }
     });
     
-    ScrollTrigger.refresh();
+    // Update the URL without reloading the page
+    const newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?lang=' + lang;
+    window.history.pushState({ path: newurl }, '', newurl);
+
+    // Refresh GSAP if any text changes affected layout heights
+    if (window.ScrollTrigger) {
+        ScrollTrigger.refresh();
+    }
 }
 
 langSelect.addEventListener('change', (e) => {
