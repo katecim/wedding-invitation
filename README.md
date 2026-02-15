@@ -1,6 +1,6 @@
 # 💌 Wedding Invitation
 
-> A digital, interactive wedding invitation with a scroll-animated envelope reveal.
+> An interactive wedding invitation with an animated envelope reveal.
 
 ## 🚀 Quick Start
 This project uses **CDN links**, so you don't need to install anything with `npm`.

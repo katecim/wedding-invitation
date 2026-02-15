@@ -401,11 +401,11 @@ hr {
 
 @keyframes twinkle-glow {
     0%, 100% { 
-        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+        box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
         opacity: 0.8;
     }
     50% { 
-        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
         opacity: 1;
     }
 }
