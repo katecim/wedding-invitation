@@ -1,8 +1,6 @@
 html, body {
     margin: 0;
     padding: 0;
-    /* Prevents the white 'rubber band' effect on iOS */
-    overflow-x: hidden;
     overflow-y: auto;
     /* Hide scrollbar for Chrome, Safari and Opera */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
@@ -247,10 +245,6 @@ hr {
     font-size: 1rem;
     letter-spacing: 1px;
     cursor: pointer;
-
-    /* Force GPU rendering for iOS */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
 
     transition: background-color 0.3s ease, color 0.3s ease;
     animation: twinkle-glow 2.5s infinite ease-in-out;
