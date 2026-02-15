@@ -21,7 +21,7 @@ tl.to(".scroll-hint", {
 })
 
   .to(".envelope-flap-container", { 
-    rotationX: -180, 
+    rotationX: 180, 
     duration: 1.3 
 }, "-=0.3")
 

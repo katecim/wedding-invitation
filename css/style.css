@@ -106,7 +106,9 @@ html, body {
 
   transform-origin: top;
   transform-style: preserve-3d;
+
   backface-visibility: hidden; /* Fixes flickering during rotation */
+  -webkit-backface-visibility: hidden; /* Prevents 3D flickering */
 
   clip-path: polygon(0 0, 100% 0, 50% 100%); /* Clean triangle */
 }
@@ -223,10 +225,6 @@ hr {
     z-index: 21;
     cursor: pointer;
     pointer-events: auto;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     white-space: nowrap;      /* Prevents text from breaking into two lines */
     width: max-content;       /* Allows the box to expand to fit the text exactly */
@@ -245,6 +243,11 @@ hr {
     font-size: 1rem;
     letter-spacing: 1px;
     cursor: pointer;
+
+   /* Stability fixes */
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0);
 
     transition: background-color 0.3s ease, color 0.3s ease;
     animation: twinkle-glow 2.5s infinite ease-in-out;
