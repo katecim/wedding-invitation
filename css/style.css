@@ -118,7 +118,7 @@ html, body {
     bottom: 40%; /* Centers the circle on the tip of the V */
     left: 50%;
     transform: translateX(-50%);
-    width: 150px;
+    width: 160px;
     height: auto;
     z-index: 10;
     pointer-events: none;
@@ -248,6 +248,10 @@ hr {
     letter-spacing: 1px;
     cursor: pointer;
 
+    /* Force GPU rendering for iOS */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+
     transition: background-color 0.3s ease, color 0.3s ease;
     animation: twinkle-glow 2.5s infinite ease-in-out;
 }
@@ -313,17 +317,22 @@ hr {
     .letter-content h1 {
         font-size: 3.25rem;
     }
-
-    .letter-content h2 {
-        font-size: 1.5rem;
-    }
     
-    .letter-content p {
-        font-size: 0.75rem;
+    #formal-invitation {
+        font-size: 0.70rem;
+        padding: 0 45px; 
     }
     
     #KateOmer {
         font-size: 1.5rem;
+    }
+
+    #date {
+        font-size: 1.25rem;
+    }
+
+    a {
+        font-size: 0.9rem;
     }
 
     .language-nav {
@@ -342,7 +351,7 @@ hr {
     }
 
     .wax-seal {
-    width: 100px;
+    width: 110px;
     }
 }
 
