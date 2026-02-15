@@ -9,12 +9,12 @@ export const translations = {
         "scroll-hint": "Klikněte pro otevření",
         "title": "Zapište si datum",
         "date": "8. srpna 2026",
-        "formal-invitation": "Rádi vás uvidíme na naší svatbě!"
+        "formal-invitation": "Rádi vás uvidíme na naší svatbě"
     },
     tr: {
         "scroll-hint": "Açmak için tıklayın",
         "title": "Tarihi Kaydedin",
         "date": "8 Ağustos 2026",
-        "formal-invitation": "Düğünümüzde sizi aramızda görmekten mutluluk duyarız!"
+        "formal-invitation": "Düğünümüzde sizi aramızda görmekten mutluluk duyarız"
     }
 };

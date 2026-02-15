@@ -1,11 +1,10 @@
 import { translations } from './translations.js';
 
-// Ensure ScrollTrigger refreshes its math
 window.addEventListener('load', () => {
     window.scrollTo(0, 0);
 });
 
-// 1. Create the Timeline
+// Timeline
 const tl = gsap.timeline({
     paused: true,
     defaults: { 
@@ -14,17 +13,17 @@ const tl = gsap.timeline({
     }
 });
 
-// 2. Define the Animation Steps
+// Animation Steps
 tl.to(".scroll-hint", { 
     opacity: 0, 
     y: 1, 
-    duration: 0.2 
+    duration: 0.5
 })
 
   .to(".envelope-flap-container", { 
     rotationX: -180, 
     duration: 1.3 
-}, "-=0.2")
+}, "-=0.3")
 
   .to(".main-invite", { 
     y: -80,

@@ -236,12 +236,8 @@ hr {
 }
 
 .scroll-hint-button {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
     background-color: #f2eeea;
-    border: 2px solid #fffefd;
+    border: 2px solid #fbf8f5;
     color: #fffefd;
     color: #333;    
 
@@ -347,7 +343,7 @@ hr {
 
     .wax-seal {
     width: 100px;
-}
+    }
 }
 
 @media (max-width: 932px) and (orientation: landscape) {
@@ -394,10 +390,6 @@ hr {
 
     body {
         overscroll-behavior-y: none;
-    }
-
-    .scroll-hint {
-        flex-direction: column-reverse;
     }
 }
 
